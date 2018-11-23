@@ -117,8 +117,10 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
                       LinearLayout layout = (LinearLayout) o;
 
                       AppCompatImageView imageView = (AppCompatImageView) layout.findViewById(R.id.mpm_popup_menu_item_icon);
-                      imageView.setImageTintMode(PorterDuff.Mode.DST);
-
+                      if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP){
+                        imageView.setImageTintMode(PorterDuff.Mode.DST);
+                      }
+                      
                       TextView textView = (TextView) layout.findViewById(R.id.mpm_popup_menu_item_label);
 
                       if (subMenu.hasKey("label") && !subMenu.isNull("label")) {
